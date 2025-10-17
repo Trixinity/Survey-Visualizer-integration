@@ -5,13 +5,12 @@
   --foreground: #ededed;
   --color-card: #1A1A1D;
   --color-button: #2E4D8F;
+  --color-button-hover: #3E5DA6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -23,6 +22,7 @@ body {
 @theme static {
   --color-card: var(--color-card);
   --color-button: var(--color-button);
+    --color-button-hover: var(--color-button-hover);
 }
 
 h1 {
