@@ -19,8 +19,8 @@ export class ApiError extends Error {
   }
 }
 
-/*
-  Maps Open Trivia DB response codes to provided messages
+/**
+ * Maps Open Trivia DB response codes to provided messages
  */
 const ERROR_MESSAGES: Record<number, string> = {
   1: "No Results: Could not return results. The API doesn't have enough questions for your query.",
@@ -30,9 +30,10 @@ const ERROR_MESSAGES: Record<number, string> = {
   5: "Rate Limit: Too many requests have occurred. Each IP can only access the API once every 5 seconds."
 };
 
-/*
- For now this function only supports GET requests without authentication.
- It can be extended in the future to support other methods and auth if needed.
+/**
+ * For now this function only supports GET requests without authentication.
+ * It can be extended in the future to support other methods and auth if needed.
+ * @returns Parsed JSON response from the API
  */
 export async function apiRequest<R>(): Promise<R> {
   try {
@@ -74,4 +75,15 @@ export async function apiRequest<R>(): Promise<R> {
     }
     throw error;
   }
+}
+
+/**
+ * Decodes HTML entities in a given text string.
+ * @param text - The text containing HTML entities to decode.
+ * @returns The decoded text.
+ */
+export function decodeHtmlEntities(text: string): string {
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
 }
